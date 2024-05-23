@@ -1,0 +1,65 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-container {
+  max-width: 400px;
+  margin: 50px auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+}
+
+.profile-image input {
+  display: none;
+}
+
+.profile-image label {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-info input,
+.profile-info button {
+  width: calc(100% - 40px);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.profile-info button {
+  background-color: #5cb85c;
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.profile-info button:hover {
+  background-color: #4cae4c;
+}
+
+input[type="submit"]:hover {
+  opacity: 0.8;
+}
