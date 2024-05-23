@@ -74,11 +74,94 @@ a {
   display: block;
 }
 
+/* Restaurant Info */
+.restaurant-info {
+  width: 30%; /* Adjust as needed */
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f9e9de;
+}
+
+/* Restaurant Container */
+.restaurant-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.restaurant-info img {
+  width: 100%; /* Makes the image responsive */
+  height: auto;
+}
+
+.restaurant-info p, .rating {
+  text-align: center;
+  padding: 10px; /* Add padding */
+}
+
+/* Rating */
+.rating {
+  font-size: 2em;
+  color: #f39c12; /* Adjust color as needed */
+  padding: 10px; /* Add padding */
+}
+
+
+/* Reservation Button */
+.restaurant-info button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.restaurant-info button:hover {
+  background-color: #ddd;
+  color: #333;
+}
+
+/* Search Bar */
+.search-container input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+h2 {
+    padding: 20px; /* Adjust as needed */
+     background-color: #f9e9de;
+}
+
+/* Filter */
+.filter-container select {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #ddd;}
 
 /* Show the dropdown menu on hover */
 .profile-icon:hover .dropdown-content {display: block;}
+
+/* Carousel */
+.carousel img {
+    width: 100%;
+    height: auto;
+}
+
+/* Restaurant Description */
+.restaurant-description {
+    text-align: center;
+    padding: 20px;
+}
+
 
 /* Main Content Area */
 main {
