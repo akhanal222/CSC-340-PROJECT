@@ -4,13 +4,15 @@ body {
     background-attachment: fixed;
     background-size: cover;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    position: relative;
 }
 
-.button{
+.button {
     background-color: #007bff; /* Blue */
     color: white;
     padding: 15px 140px;
@@ -20,3 +22,16 @@ body {
     margin-top: 20px;
 }
 
+.admin-login {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.admin-button {
+    background-color: #dc3545; /* Red */
+    color: white;
+    padding: 10px 50px;
+    border: none;
+    cursor: pointer;
+}

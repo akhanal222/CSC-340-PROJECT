@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Content Moderation</title>
+    <link rel="stylesheet" href="../CSS/admin.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <a href="AdminDashboard.html">
+                <img src="../Images/logo.png" alt="Logo">
+            </a>
+        </div>
+        <ul>
+            <li><a href="AdminDashboard.html">Dashboard</a></li>
+            <li><a href="UserManagement.html">User Management</a></li>
+            <li><a href="ContentModeration.html">Content Moderation</a></li>
+        </ul>
+        <div class="dropdown">
+            <div class="profile-icon">
+                <img src="../Images/admin.jpg" alt="Admin Icon">
+                <div class="dropdown-content">
+                    <a href="#">Profile</a>
+                    <a href="#">Settings</a>
+                    <a href="../HTML/Logout.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <h2>Content Moderation</h2>
+    <div class="moderation-container">
+        <div class="moderation-actions">
+            <button onclick="location.href='ReviewModeration.html'">Moderate Reviews</button>
+            <button onclick="location.href='ProfileModeration.html'">Moderate Profiles</button>
+        </div>
+        <div class="review-list">
+            <h3>Pending Reviews</h3>
+            <!-- List of reviews pending moderation will be dynamically loaded here -->
+            <ul>
+                <li>Review 1</li>
+                <li>Review 2</li>
+                <li>Review 3</li>
+                <!-- More reviews -->
+            </ul>
+        </div>
+    </div>
+</main>
+
+<footer>
+</footer>
+
+</body>
+</html>
