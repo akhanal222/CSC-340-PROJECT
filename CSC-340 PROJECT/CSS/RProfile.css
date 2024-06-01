@@ -1,15 +1,16 @@
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background-color: #f4f4f4;
-  margin: 0;
+  margin: 100;
   padding: 0;
+  align: center
 }
 
 .profile-container {
-  max-width: 400px;
+  max-width: 600px;
   margin: 50px auto;
   background: white;
-  border-radius: 8px;
+  border-radius: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   padding: 20px;
@@ -34,13 +35,13 @@ body {
 
 .profile-info {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 80px;
 }
 
 .profile-info input,
 .profile-info button {
   width: calc(100% - 40px);
-  padding: 10px;
+  padding: 20px;
   margin-bottom: 15px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -62,4 +63,28 @@ body {
 
 input[type="submit"]:hover {
   opacity: 0.8;
+}
+
+nav {
+
+}
+
+.back-button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 20px;
+    border: none;
+    border-radius: 30px;
+    background-color: #5cb85c; /* Green background color */
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 50px;
+
+}
+
+.back-button:hover {
+    background-color: #4cae4c; /* Darker green color on hover */
+    opacity: 0.8;
 }

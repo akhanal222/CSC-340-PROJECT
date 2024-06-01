@@ -8,15 +8,22 @@
 </head>
 <body>
 
+<h1> Update Your Restaurant Profile </h1>
+
 <div class="profile-container">
     <a href="ResturantView.html"><button class="back-button">&lt; Back</button> </a>
     <form id="profileForm">
-        <label for="profileImage">Update Profile Image:</label>
+        <label for="profileImage"> Profile Image:</label>
         <input type="file" id="profileImage" name="profileImage" accept="image/*">
         <div class="profile-info">
-            <label for="name">Update Name:</label>
+            <label for="name"> Restaurant Name: </label>
             <input type="text" id="name" name="name" placeholder="Your name...">
-            <label for="website">Update Restaurant Website:</label>
+
+
+            <label for="aboutUs"> Restaurant Descriptions:</label>
+            <input type = "text" id="aboutUs" name="aboutUs" placeholder="Tell customers about your restaurant...">
+
+            <label for="website"> Restaurant Website: </label>
             <input type="url" id="website" name="website" placeholder="Your restaurant's website...">
             <button type="submit">Update Profile</button>
         </div>
