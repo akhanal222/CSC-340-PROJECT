@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Management</title>
+    <link rel="stylesheet" href="../CSS/admin.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <a href="AdminDashboard.html">
+                <img src="../Images/logo.png" alt="Logo">
+            </a>
+        </div>
+        <ul>
+            <li><a href="AdminDashboard.html">Dashboard</a></li>
+            <li><a href="UserManagement.html">User Management</a></li>
+            <li><a href="ContentModeration.html">Content Moderation</a></li>
+        </ul>
+        <div class="dropdown">
+            <div class="profile-icon">
+                <img src="../Images/admin.jpg" alt="Admin Icon">
+                <div class="dropdown-content">
+                    <a href="#">Profile</a>
+                    <a href="#">Settings</a>
+                    <a href="../HTML/Logout.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <h2>User Management</h2>
+    <div class="user-management-container">
+        <div class="user-actions">
+            <button onclick="location.href='CreateUser.html'">Create User</button>
+            <button onclick="location.href='EditUser.html'">Edit User</button>
+            <button onclick="location.href='DeleteUser.html'">Delete User</button>
+        </div>
+        <div class="user-list">
+            <h3>User List</h3>
+            <!-- List of users will be dynamically loaded here -->
+            <ul>
+                <li>User 1</li>
+                <li>User 2</li>
+                <li>User 3</li>
+                <!-- More users -->
+            </ul>
+        </div>
+    </div>
+</main>
+
+<footer>
+</footer>
+
+</body>
+</html>
