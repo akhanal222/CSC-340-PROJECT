@@ -5,6 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SysAdminRepository extends JpaRepository<SysAdmin, Integer> {
+    SysAdmin findByUsername(String username);
 }
-
-
