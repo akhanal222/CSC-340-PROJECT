@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Signup</title>
+    <link rel="stylesheet" href="../CSS/signup.css">
+</head>
+<body>
+<div class="container">
+    <div class="image-section"></div>
+    <div class="form-section">
+        <a th:href="@{/restaurant/login}"><button class="back-button">&lt; Back</button></a>
+
+        <h2>Restaurant Account Signup</h2>
+        <p>Become a member and enjoy the business experience with us.</p>
+
+        <form th:action="@{/restaurant-owners/create}" method="post">
+            <input type="text" name="restaurantName" placeholder="Restaurant Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="password" name="Password" placeholder="Password" required>
+            <input type="text" name="restaurantAddress" placeholder="Address">
+            <input type="text" name="restaurantPhoneNumber" placeholder="PhoneNumber">
+            <input type="text" name="restaurantType" placeholder="RestaurantType">
+            <button type="submit">Continue</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

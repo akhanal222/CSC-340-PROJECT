@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Reviews</title>
+    <link rel="stylesheet" href="../CSS/review.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <a href="Homepage.html">
+                <img src="../Images/Logo.png" alt="Logo">
+            </a>
+        </div>
+        <ul>
+            <li><a href="Homepage.html">Home</a></li>
+            <li><a href="Reservation.html">Reservation</a></li>
+            <li><a href="Review.html">Review</a></li>
+            <li><a href="Aboutus.html">About Us</a></li>
+        </ul>
+        <div class="dropdown">
+            <div class="profile-icon">
+                <img src="../Images/user.png" alt="Profile Icon">
+                <div class="dropdown-content">
+                    <a href="#">Profile</a>
+                    <a href="#">Settings</a>
+                    <a href="../HTML/Logout.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="review-list">
+    <h2>Reviews</h2>
+    <ul>
+        <li th:each="review : ${reviews}">
+            <p><strong th:text="${review.comment}">Review Comment</strong></p>
+            <p>Rating: <span th:text="${review.rating}">0</span></p>
+            <div th:each="reply : ${review.replies}">
+                <p><em th:text="${reply.comment}">Reply Comment</em></p>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="reply-tab">
+    <h2>Reply to a Review</h2>
+    <form th:action="@{/reviews/reply}" th:object="${replyDTO}" method="post">
+        <label for="review-select">Choose a review to reply to:</label>
+        <select id="review-select" name="reviewId" th:field="*{reviewId}">
+            <option value="">Select...</option>
+            <option th:each="review : ${reviews}" th:value="${review.id}" th:text="${review.comment}"></option>
+        </select>
+
+        <input type="hidden" name="restaurantOwnerId" th:value="${#authentication.principal.restaurantOwnerId}" />
+
+        <textarea id="reply" name="comment" rows="4" placeholder="Write your reply here..." th:field="*{comment}"></textarea>
+        <button type="submit">Submit Reply</button>
+    </form>
+</div>
+
+<main>
+</main>
+
+<footer>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Reservations</title>
+    <link rel="stylesheet" href="../CSS/Reservation.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <a href="Homepage.html">
+                <img src="../Images/Logo.png" alt="Logo">
+            </a>
+        </div>
+        <ul>
+            <li><a href="Homepage.html">Home</a></li>
+            <li><a href="Reservation.html">Reservation</a></li>
+            <li><a href="Review.html">Review</a></li>
+            <li><a href="Aboutus.html">About Us</a></li>
+        </ul>
+        <div class="dropdown">
+            <div class="profile-icon">
+                <img src="../Images/user.png" alt="Profile Icon">
+                <div class="dropdown-content">
+                    <a href="#">Profile</a>
+                    <a href="#">Settings</a>
+                    <a href="../HTML/Logout.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="reservation-list">
+    <h1>All Reservations</h1>
+    <ul>
+        <th:block th:each="reservation : ${reservations}">
+            <li th:text="${reservation.reservationDate} + ' ' + ${reservation.reservationTime} + ' - ' + ${reservation.numberOfGuests} + ' guests'">Reservation Details</li>
+        </th:block>
+    </ul>
+    <a href="/reservations/create">Create a new reservation</a>
+</div>
+
+<main>
+</main>
+
+<footer>
+</footer>
+
+</body>
+</html>
