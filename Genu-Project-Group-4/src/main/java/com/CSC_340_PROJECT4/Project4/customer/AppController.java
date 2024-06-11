@@ -1,3 +1,4 @@
+/*
 package com.CSC_340_PROJECT4.Project4.customer;
 
 import com.CSC_340_PROJECT4.Project4.restaurant.RestaurantOwner;
@@ -10,7 +11,7 @@ public class AppController {
 
     @GetMapping("/home")
     public String viewHomepage() {
-        return "HTML/First page";  // home page
+        return "/HTML/First page";  // home page
     }
 
     @GetMapping("/customer/signup")
@@ -39,4 +40,55 @@ public class AppController {
     public String adminLogin() {  // admin login
         return "Admin/AdminLogin";
     }
+}
+*/
+
+package com.CSC_340_PROJECT4.Project4.customer;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class AppController {
+
+    /*@Autowired
+    private CustomerRepository customerRepository;*/
+
+   /* @GetMapping("/home")
+    public String viewHomepage() {
+        return "/HTML/First page";  // home page
+    }*/
+
+   /* @GetMapping("/customer/signup")
+    public String customerSignUp(Model model) {
+        model.addAttribute("customer", new Customer());
+        return "Customer/CustomerSignup";            // customer Signup
+    }
+*/
+    /*@PostMapping("/customer/create")
+    public String createCustomer(@ModelAttribute Customer customer) {
+        customer.setRole("CUSTOMER"); // Set the role to CUSTOMER
+        customerRepository.save(customer);
+        return "redirect:/customer/login";
+    }*/
+
+    /*@GetMapping("/login")
+    public String customerLogin() {                 // Customer login
+        return "Customer/Customerslogin";
+    }*/
+
+    /*@GetMapping("/restaurant/login")
+    public String restaurantLogin() {               // Restaurant login
+        return "Restaurant/Restaurantlogin";
+    }*/
+
+   /* @GetMapping("/restaurant/signup")
+    public String restaurantSignUp(Model model) {    // Restaurant login
+        model.addAttribute("restaurantOwner", new RestaurantOwner());
+        return "Restaurant/RestaurantSignup";
+    }*/
+
+   /* @GetMapping("/admin/login")
+    public String adminLogin() {  // admin login
+        return "Admin/AdminLogin";
+    }*/
 }

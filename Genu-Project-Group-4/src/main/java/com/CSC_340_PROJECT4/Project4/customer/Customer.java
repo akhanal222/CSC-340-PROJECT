@@ -25,10 +25,11 @@ public class Customer extends User {
         super();
     }
 
-    public Customer(@NonNull String username, @NonNull String firstName, @NonNull String lastName, @NonNull String address, @NonNull String phoneNumber, @NonNull String password, @NonNull String email) {
+    public Customer(@NonNull String username, @NonNull String firstName, @NonNull String lastName, @NonNull String address, @NonNull String phoneNumber, @NonNull String password, @NonNull String email, @NonNull String role) {
         super.setUsername(username);
         super.setPassword(password);
         super.setEmail(email);
+        super.setRole(role);
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;

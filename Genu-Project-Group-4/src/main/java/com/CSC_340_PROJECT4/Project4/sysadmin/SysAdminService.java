@@ -19,7 +19,7 @@ public class SysAdminService {
     @PostConstruct
     public void init() {
         if (repo.count() == 0) {
-            SysAdmin defaultAdmin = new SysAdmin("genuadmin", "Genuine Admin", "admin@genu.com", "genu");
+            SysAdmin defaultAdmin = new SysAdmin("genuadmin", "Genuine Admin", "admin@genu.com", "genu", "ADMIN");
             repo.save(defaultAdmin);
         }
     }
@@ -31,6 +31,4 @@ public class SysAdminService {
     public void deleteUser(int userId) {
         userService.deleteUser(userId);
     }
-
 }
-

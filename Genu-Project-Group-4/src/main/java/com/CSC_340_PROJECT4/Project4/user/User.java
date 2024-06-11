@@ -5,12 +5,13 @@ import org.springframework.lang.NonNull;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class User {
+public abstract class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @NonNull
+    @Column(unique = true) // Ensure the username is unique across all users
     private String username;
 
     @NonNull
@@ -18,6 +19,9 @@ public class User {
 
     @NonNull
     private String password;
+
+    @NonNull
+    private String role;
 
     public int getId() {
         return id;
@@ -54,4 +58,12 @@ public class User {
         this.password = password;
     }
 
+    @NonNull
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(@NonNull String role) {
+        this.role = role;
+    }
 }

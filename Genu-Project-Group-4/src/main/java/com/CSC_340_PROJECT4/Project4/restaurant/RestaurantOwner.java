@@ -8,9 +8,6 @@ import org.springframework.lang.NonNull;
 public class RestaurantOwner extends User {
 
     @NonNull
-    private String email; // Email of the Restaurant
-
-    @NonNull
     private String restaurantName; // Name of the Restaurant
 
     @NonNull
@@ -22,38 +19,19 @@ public class RestaurantOwner extends User {
     @NonNull
     private String restaurantType; // Type of the restaurant
 
-    @NonNull
-    private String Password; // Password for the Restaurant account
-
     public RestaurantOwner() {
-
+        super();
     }
 
-    public RestaurantOwner(@NonNull String email, @NonNull String restaurantName, @NonNull String restaurantAddress, @NonNull String restaurantPhoneNumber, @NonNull String restaurantType,String Password) {
-        this.email = email;
+    public RestaurantOwner(@NonNull String username, @NonNull String email, @NonNull String password, @NonNull String restaurantName, @NonNull String restaurantAddress, @NonNull String restaurantPhoneNumber, @NonNull String restaurantType, @NonNull String role) {
+        super.setUsername(username);
+        super.setEmail(email);
+        super.setPassword(password);
+        super.setRole(role);
         this.restaurantName = restaurantName;
         this.restaurantAddress = restaurantAddress;
         this.restaurantPhoneNumber = restaurantPhoneNumber;
         this.restaurantType = restaurantType;
-        this.Password= Password;
-    }
-
-
-    @NonNull
-    public String getPassword() {
-        return Password;
-    }
-    public void setPassword(@NonNull String password) {
-        Password = password;
-    }
-
-    @NonNull
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(@NonNull String email) {
-        this.email = email;
     }
 
     @NonNull
