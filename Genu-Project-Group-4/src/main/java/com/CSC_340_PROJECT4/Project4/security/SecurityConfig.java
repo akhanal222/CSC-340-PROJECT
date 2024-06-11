@@ -26,7 +26,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-
     @Autowired
     private CustomUserDetailsService userDetailsService;
 
@@ -45,15 +44,13 @@ public class SecurityConfig {
                         .requestMatchers("/", "/home", "/customer/signup", "/customer/login",
                                 "/restaurant-owners/signup", "/restaurant-owners/login",
                                 "/admin/login").permitAll()
-
                         .requestMatchers("/customer/**").hasRole("CUSTOMER")
                         .requestMatchers("/restaurant-owners/**").hasRole("RESTAURANT_OWNER")
                         .requestMatchers("/sysadmins/**").hasRole("SYSADMIN")
                         .anyRequest().authenticated()
                 )
-
                 .formLogin((form) -> form
-                        .loginPage("/login") // Set a common login page for all roles
+                        .loginPage("/login")
                         .successHandler(customAuthenticationSuccessHandler)
                         .permitAll()
                 )
@@ -81,3 +78,64 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
+
+
+
+//@Configuration
+//@EnableWebSecurity
+//public class SecurityConfig {
+//
+//    @Autowired
+//    private CustomUserDetailsService userDetailsService;
+//
+//    @Autowired
+//    private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
+//
+//    @Bean
+//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//        HttpSessionRequestCache requestCache = new HttpSessionRequestCache();
+//        requestCache.setMatchingRequestParameterName(null);
+//
+//        http
+//                .csrf(AbstractHttpConfigurer::disable)
+//                .authorizeHttpRequests((authorize) -> authorize
+//                        .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.ERROR).permitAll()
+//                        .requestMatchers("/", "/home", "/customer/signup", "/customer/login",
+//                                "/restaurant-owners/signup", "/restaurant-owners/login",
+//                                "/admin/login").permitAll()
+//
+//                        .requestMatchers("/customer/**").hasRole("CUSTOMER")
+//                        .requestMatchers("/restaurant-owners/**").hasRole("RESTAURANT_OWNER")
+//                        .requestMatchers("/sysadmins/**").hasRole("SYSADMIN")
+//                        .anyRequest().authenticated()
+//                )
+//
+//                .formLogin((form) -> form
+//                        .loginPage("/login") // Set a common login page for all roles
+//                        .successHandler(customAuthenticationSuccessHandler)
+//                        .permitAll()
+//                )
+//                .exceptionHandling((x) -> x.accessDeniedPage("/403"))
+//                .logout((logout) -> logout.permitAll())
+//                .requestCache((cache) -> cache
+//                        .requestCache(requestCache)
+//                );
+//
+//        return http.build();
+//    }
+//
+//    @Autowired
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+//    }
+//
+//    @Bean
+//    public WebSecurityCustomizer webSecurityCustomizer() {
+//        return (web) -> web.ignoring().requestMatchers("/CSS/**", "/Images/**");
+//    }
+//
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
+//}
