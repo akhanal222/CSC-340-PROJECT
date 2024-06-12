@@ -25,9 +25,11 @@ public class RestaurantOwnerController {
 
     // it Return restaurant owner by their ID.
 
-    @GetMapping("/owner/{id}")
-    public RestaurantOwner getRestaurantOwnerById(@PathVariable int id) {
-        return restaurantOwnerService.getRestaurantOwnerById(id);
+    @GetMapping("/{id}")
+    public String getRestaurantOwnerById(@PathVariable int id, Model model) {
+        RestaurantOwner restaurantOwner = restaurantOwnerService.getRestaurantOwnerById(id);
+        model.addAttribute("restaurantOwner", restaurantOwner);
+        return "Restaurant/SettingRestaurent"; // Name of the Thymeleaf template
     }
 
     // Create new Restaurant Owner
@@ -35,13 +37,17 @@ public class RestaurantOwnerController {
     public String createRestaurantOwner(RestaurantOwner restaurantOwner, Model model) {
         RestaurantOwner createdRestaurantOwner = restaurantOwnerService.createRestaurantOwner(restaurantOwner);
         model.addAttribute("Restaurant", createdRestaurantOwner);
-        return "redirect:/restaurant/login";  // Go back to the login page for the Restaurant
+        return "redirect:/restaurant-owners/login";  // Go back to the login page for the Restaurant
     }
 
-    @PutMapping("/update/{id}")  // Update the ResturantOwner by their id
-    public RestaurantOwner updateRestaurantOwner(@PathVariable int id, @RequestBody RestaurantOwner restaurantOwnerDetails) {
-        return restaurantOwnerService.updateRestaurantOwner(id, restaurantOwnerDetails);
+    @PostMapping("/{id}")
+    public String updateRestaurantOwner(@PathVariable int id, RestaurantOwner restaurantOwnerDetails, Model model) {
+        RestaurantOwner updatedRestaurantOwner = restaurantOwnerService.updateRestaurantOwner(id, restaurantOwnerDetails);
+        model.addAttribute("restaurantOwner", updatedRestaurantOwner);
+        return "redirect:/restaurant-owners/owner/" + id;
     }
+
+
 
     @DeleteMapping("/delete/{id}")  // Delete the RestaurantOwner by their id
     public void deleteRestaurantOwner(@PathVariable int id) {

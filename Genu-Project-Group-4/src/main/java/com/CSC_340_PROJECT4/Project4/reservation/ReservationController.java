@@ -74,9 +74,9 @@ public class ReservationController {
     }
 
     @PostMapping("/create") // Make a new reservation
-    public String createReservation(Model model) {
+    public String createReservation(@ModelAttribute Reservation reservation, Model model) {
         model.addAttribute("reservation", new Reservation());
-        return "redirect:/reservations/all";
+        return "Customer/ReservationList";
     }
 
     @DeleteMapping("/delete/{id}") // delete the reservation

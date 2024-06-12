@@ -1,3 +1,4 @@
+/*
 package com.CSC_340_PROJECT4.Project4.security;
 
 import jakarta.servlet.ServletException;
@@ -33,3 +34,4 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         throw new IllegalStateException();
     }
 }
+*/

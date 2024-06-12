@@ -41,28 +41,17 @@
             <div th:each="reply : ${review.replies}">
                 <p><em th:text="${reply.comment}">Reply Comment</em></p>
             </div>
+            <div class="reply-form">
+                <form th:action="@{/reviews/reply}" th:object="${replyDTO}" method="post">
+                    <input type="hidden" name="reviewId" th:value="${review.id}" />
+                    <input type="hidden" name="restaurantOwnerId" th:value="${#authentication.principal.restaurantOwnerId}" />
+                    <textarea name="comment" rows="2" placeholder="Write your reply here..." th:field="*{comment}"></textarea>
+                    <button type="submit">Submit Reply</button>
+                </form>
+            </div>
         </li>
     </ul>
 </div>
-
-<div class="reply-tab">
-    <h2>Reply to a Review</h2>
-    <form th:action="@{/reviews/reply}" th:object="${replyDTO}" method="post">
-        <label for="review-select">Choose a review to reply to:</label>
-        <select id="review-select" name="reviewId" th:field="*{reviewId}">
-            <option value="">Select...</option>
-            <option th:each="review : ${reviews}" th:value="${review.id}" th:text="${review.comment}"></option>
-        </select>
-
-        <input type="hidden" name="restaurantOwnerId" th:value="${#authentication.principal.restaurantOwnerId}" />
-
-        <textarea id="reply" name="comment" rows="4" placeholder="Write your reply here..." th:field="*{comment}"></textarea>
-        <button type="submit">Submit Reply</button>
-    </form>
-</div>
-
-<main>
-</main>
 
 <footer>
 </footer>

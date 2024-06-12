@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home Page</title>
+    <link rel="stylesheet" th:href="@{/CSS/homepage.css}">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <a th:href="@{/home}">
+                <img th:src="@{/Images/Logo.png}" alt="Logo">
+            </a>
+        </div>
+        <ul>
+            <li><a th:href="@{/Customer/homepage}">Home</a></li>
+            <li><a th:href="@{/customer/Booking}">Reservation</a></li>
+            <li><a th:href="@{/customer/reviw}">Review</a></li>
+            <li><a th:href="@{/Aboutus}">About Us</a></li>
+        </ul>
+
+        <div class="search-container">
+            <form th:action="@{/search}" method="get">
+                <input type="text" name="query" placeholder="Search..">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <div class="filter-container">
+            <form th:action="@{/filter}" method="get">
+                <select name="type">
+                    <option value="">Filter by Type</option>
+                    <option value="Italian">Italian</option>
+                    <option value="Chinese">Chinese</option>
+                    <option value="Mexican">Mexican</option>
+                    <!-- Add other options as needed -->
+                </select>
+                <button type="submit">Filter</button>
+            </form>
+        </div>
+        <div class="dropdown">
+            <div class="profile-icon">
+                <img th:src="@{/Images/user.png}" alt="Profile Icon">
+                <div class="dropdown-content">
+                    <a th:href="@{/profile}">Profile</a>
+                    <a th:href="@{/settings}">Settings</a>
+                    <a th:href="@{/logout}">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="restaurant-container">
+    <div th:each="restaurant : ${restaurants}" class="restaurant-info">
+        <img th:src="@{|/Images/${restaurant.image}|}" alt="Restaurant Picture">
+        <p th:text="${restaurant.restaurantAddress}"></p>
+        <div class="rating" th:text="${restaurant.rating}"></div>
+        <button th:onclick="'location.href=\'/Reservation.html\'">Reserve</button>
+    </div>
+</div>
+
+<footer>
+</footer>
+
+</body>
+</html>

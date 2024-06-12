@@ -83,6 +83,23 @@ public class CustomerController {
         return customerService.getCustomerById(id);
     }
 
+    @GetMapping("/login")
+    public String customerLogin() {       // Customer login
+        return "Customer/Customerslogin";
+    }
+
+    @GetMapping("/settings/{id}")
+    public String getCustomerSettings(@PathVariable int id, Model model) {
+        Optional<Customer> customer = customerService.getCustomerById(id);
+        if (customer.isPresent()) {
+            model.addAttribute("customer", customer.get());
+            return "Customer/SettingCustomer";
+        } else {
+            // Handle the case where the customer is not found
+            return "error";
+        }
+    }
+
     @PostMapping("/create")  // Make a new Customer
     public String createCustomer(Customer customer, Model model) {
         Customer createdCustomer = customerService.createCustomer(customer);
@@ -91,11 +108,13 @@ public class CustomerController {
     }
 
 
-    @PutMapping("/update/{id}")  //update Customer by ID
-    @ResponseBody
-    public Customer updateCustomer(@PathVariable int id, @RequestBody Customer customerDetails) {
-        return customerService.updateCustomer(id, customerDetails);
+    @PutMapping("/update/{id}")
+    public String updateCustomer(@PathVariable int id, @ModelAttribute Customer customerDetails, Model model) {
+        Customer updatedCustomer = customerService.updateCustomer(id, customerDetails);
+        model.addAttribute("customer", updatedCustomer);
+        return "redirect:/customer/settings/" + id;
     }
+
 
     @DeleteMapping("/delete/{id}")    // delete Customer by ID
     @ResponseBody

@@ -10,7 +10,7 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/api/notifications")
+@RequestMapping("/notifications")
 public class NotificationController {
     @Autowired
     private NotificationService notificationService;

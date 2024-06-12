@@ -23,6 +23,11 @@ public class RestaurantOwnerService {
     }
 
     public RestaurantOwner createRestaurantOwner(RestaurantOwner restaurantOwner) {
+        if(restaurantOwnerRepository.findByUsername(restaurantOwner.getUsername()).isPresent()){
+            throw new IllegalArgumentException("Username already exist");
+        }
+        restaurantOwner.setPassword((restaurantOwner.getPassword()));
+        restaurantOwner.setRole("RESTAURANT");
         return restaurantOwnerRepository.save(restaurantOwner); // create new restuantowner
     }
 

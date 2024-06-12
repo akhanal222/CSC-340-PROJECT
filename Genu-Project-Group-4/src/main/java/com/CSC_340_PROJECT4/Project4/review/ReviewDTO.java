@@ -6,7 +6,7 @@ public class ReviewDTO {
     private String comment;
     private int rating;
 
-
+    // Getters and setters
     public int getCustomerId() {
         return customerId;
     }

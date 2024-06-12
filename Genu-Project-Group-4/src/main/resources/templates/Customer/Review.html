@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Write a Review</title>
     <link rel="stylesheet" href="../CSS/review.css">
@@ -16,7 +16,7 @@
         <ul>
             <li><a href="Homepage.html">Home</a></li>
             <li><a href="Reservation.html">Reservation</a></li>
-            <li><a href="Review.html">Review</a></li>
+            <li><a href="/reviews/write">Write Review</a></li> <!-- Updated to match the route -->
             <li><a href="Aboutus.html">About Us</a></li>
         </ul>
         <div class="dropdown">
@@ -34,24 +34,28 @@
 
 <div class="review-tab">
     <h2>Write a Review</h2>
-    <form id="review-form" action="/reviews/create" method="post">
+    <form id="review-form" th:action="@{/reviews/create}" th:object="${reviewDTO}" method="post">
+        <input type="hidden" th:field="*{customerId}" value="1" /> <!-- Set the customer ID dynamically -->
+
         <label for="restaurant-select">Choose a restaurant:</label>
-        <select id="restaurant-select" name="restaurantId" required>
+        <select id="restaurant-select" name="restaurantId" th:field="*{restaurantId}" required>
             <option value="">Select...</option>
             <option value="1">Restaurant A</option>
             <option value="2">Restaurant B</option>
             <option value="3">Restaurant C</option>
+            <!-- Add more options dynamically if needed -->
         </select>
 
         <div class="rating">
-            <input type="radio" id="star5" name="rating" value="5" required /><label for="star5">★</label>
-            <input type="radio" id="star4-8" name="rating" value="4.8" /><label for="star4-8">★</label>
-            <input type="radio" id="star4-5" name="rating" value="4.5" /><label for="star4-5">★</label>
-            <input type="radio" id="star4" name="rating" value="4" /><label for="star4">★</label>
-            <input type="radio" id="star3" name="rating" value="3" /><label for="star3">★</label>
+            <input type="radio" id="star5" name="rating" th:field="*{rating}" value="5" required /><label for="star5">★</label>
+            <input type="radio" id="star4-8" name="rating" th:field="*{rating}" value="4.8" /><label for="star4-8">★</label>
+            <input type="radio" id="star4-5" name="rating" th:field="*{rating}" value="4.5" /><label for="star4-5">★</label>
+            <input type="radio" id="star4" name="rating" th:field="*{rating}" value="4" /><label for="star4">★</label>
+            <input type="radio" id="star3" name="rating" th:field="*{rating}" value="3" /><label for="star3">★</label>
+            <!-- Add more rating options as needed -->
         </div>
 
-        <textarea id="comment" name="comment" rows="4" placeholder="Write your review here..." required></textarea>
+        <textarea id="comment" name="comment" th:field="*{comment}" rows="4" placeholder="Write your review here..." required></textarea>
         <button type="submit">Submit Review</button>
     </form>
 </div>

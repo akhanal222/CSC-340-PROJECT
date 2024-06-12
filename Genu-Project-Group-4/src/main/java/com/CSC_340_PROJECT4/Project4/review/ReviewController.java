@@ -34,7 +34,13 @@ public class ReviewController {
     public String getAllReviews(Model model) {
         List<Review> reviews = reviewService.getAllReviews();
         model.addAttribute("reviews", reviews);
-        return "ReviewReply"; // This will return the reviews.html Thymeleaf template
+        return "Restaurant/ReviewReply";
+    }
+
+    @GetMapping("/write")
+    public String writeReviewForm(Model model) {
+        model.addAttribute("reviewDTO", new ReviewDTO());
+        return "Customer/Review"; // Show template for writing reviews
     }
 
     @PostMapping("/create")
